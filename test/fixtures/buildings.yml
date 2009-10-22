@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  year: 1
+  city_id: 1
+  address: MyText
+  directions: MyText
+  description: MyText
+
+two:
+  name: MyString
+  year: 1
+  city_id: 1
+  address: MyText
+  directions: MyText
+  description: MyText

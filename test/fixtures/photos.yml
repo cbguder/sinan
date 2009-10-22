@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  building_id: 1
+  date_taken: 2009-10-22
+  public: false
+
+two:
+  building_id: 1
+  date_taken: 2009-10-22
+  public: false
