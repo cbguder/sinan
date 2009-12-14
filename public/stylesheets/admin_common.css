@@ -1,0 +1,22 @@
+/* CLASSES */
+
+.alignleft { float: left; }
+.alignright { float: right; }
+
+.textleft { text-align: left; }
+.textright { text-align: right; }
+
+.clear { clear: both; height: 2px; }
+
+.hidden { display: none; }
+
+.notice, .warning, .error {
+	margin: 0 0 16px 0;
+	border-width: 1px;
+	border-style: solid;
+	padding: 12px;
+}
+
+.notice   { background-color: #e0ffe0; border-color: #00cc00; }
+.warning  { background-color: #ffffe0; border-color: #cbcc00; }
+.error    { background-color: #ffe0e0; border-color: #cc0000; }

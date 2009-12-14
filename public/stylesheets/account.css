@@ -1,0 +1,59 @@
+* { margin: 0; padding: 0; }
+
+body {
+	font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+form {
+	padding: 16px 16px 40px 16px;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #eaf3fa;
+}
+
+#login_form form .submit input {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+	padding: 3px 5px;
+	border: none;
+	font-size: 13px;
+	border-width: 1px;
+	border-style: solid;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	cursor: default;
+	text-decoration: none;	
+	margin-top: -6px;
+	background-color: #cee1ef;
+}
+
+form .submit { float: right; }
+
+form p { margin-bottom: 24px; }
+
+h1 {
+	background: url(/images/logo.png) no-repeat top right;
+	width: 292px;
+	height: 56px;
+	text-indent: -9999px;
+	overflow: hidden;
+	padding-bottom: 15px;
+	display: block;
+}
+
+#login_form { width: 292px; margin: 7em auto; }
+
+#password, #login, #email {
+	font-size: 20px;
+	width: 97%;
+	padding: 3px;
+	margin-right: 6px;
+}
+
+.notice, .warning, .error {
+	margin: 0 0 16px 0;
+}
