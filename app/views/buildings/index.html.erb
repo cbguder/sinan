@@ -1,30 +1,22 @@
-<h1>Listing buildings</h1>
+<h2>Tüm eserler</h2>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Year</th>
-    <th>City</th>
-    <th>Address</th>
-    <th>Directions</th>
-    <th>Description</th>
-  </tr>
-
+    <thead>
+        <tr>
+            <th>İsim</th>
+            <th>Yıl</th>
+            <th>Şehir</th>
+            <th class="edit"></th>
+        </tr>
+    </thead>
+    <tbody>
 <% @buildings.each do |building| %>
-  <tr>
-    <td><%=h building.name %></td>
-    <td><%=h building.year %></td>
-    <td><%=h building.city_id %></td>
-    <td><%=h building.address %></td>
-    <td><%=h building.directions %></td>
-    <td><%=h building.description %></td>
-    <td><%= link_to 'Show', building %></td>
-    <td><%= link_to 'Edit', edit_building_path(building) %></td>
-    <td><%= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+        <tr>
+            <td><%= link_to building.name, building %></td>
+            <td><%=h building.year %></td>
+            <td><%=h building.city.name %></td>
+            <td class="rightmost"><%= member_actions(building, [:edit]) %></td>
+        </tr>
 <% end %>
+    </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New building', new_building_path %>

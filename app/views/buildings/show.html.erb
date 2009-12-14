@@ -1,33 +1,44 @@
-<p>
-  <b>Name:</b>
-  <%=h @building.name %>
-</p>
+<script type="text/javascript">
+function initialize() {
+	var latlng = new google.maps.LatLng(<%=h @building.latitude %>, <%=h @building.longitude %>);
 
-<p>
-  <b>Year:</b>
-  <%=h @building.year %>
-</p>
+	var myOptions = {
+		zoom: 8,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
 
-<p>
-  <b>City:</b>
-  <%=h @building.city_id %>
-</p>
+	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-<p>
-  <b>Address:</b>
-  <%=h @building.address %>
-</p>
+	var marker = new google.maps.Marker({
+		position: latlng,
+		map: map,
+		title: "<%=h @building.name %>"
+	});
+};
 
-<p>
-  <b>Directions:</b>
-  <%=h @building.directions %>
-</p>
+document.observe("dom:loaded", function() {
+	initialize();
+});
+</script>
 
-<p>
-  <b>Description:</b>
-  <%=h @building.description %>
-</p>
+<h2><%=h @building.name %></h2>
 
+<p><label>Yıl</label>      <%=h @building.year %></p>
+<p><label>Şehir</label>    <%=h @building.city.name %></p>
+<p><label>Adres</label>    <%= text_area_tag(nil, @building.address, :rows => 5, :cols => 40, :disabled => true) %></p>
+<p><label>Tarif</label>    <%= text_area_tag(nil, @building.directions, :rows => 5, :cols => 40, :disabled => true) %></p>
+<p><label>Açıklama</label> <%= text_area_tag(nil, @building.description, :rows => 5, :cols => 40, :disabled => true) %></p>
 
-<%= link_to 'Edit', edit_building_path(@building) %> |
-<%= link_to 'Back', buildings_path %>
+<h2>Fotoğraflar</h2>
+
+<div>
+<%- for photo in @building.photos -%>
+<div class="photo"><img src="/photos/thumbnails/<%=h @building.id %>/<%=h photo.id %>.jpg" /></div>
+<%- end -%>
+</div>
+
+<p style="clear:both;"><%= link_to 'Fotoğraf ekle', :action => :add_photo %></p>
+
+<h2>Harita</h2>
+<div id="map_canvas"></div>

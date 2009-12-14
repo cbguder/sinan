@@ -1,0 +1,28 @@
+<% form_for(@building) do |f| %>
+<%= f.error_messages %>
+<p><%= f.label :name, 'İsim' %>
+<%= f.text_field :name %></p>
+
+<p><%= f.label :year, 'Yıl' %>
+<%= f.text_field :year, :size => 4, :maxlength => 4 %></p>
+
+<p><%= f.label :city_id, 'Şehir' %>
+<%= f.collection_select :city_id, City.all, :id, :name %></p>
+
+<p><%= f.label :address, 'Adres' %>
+<%= f.text_area :address, :rows => 5, :cols => 40 %></p>
+
+<p><%= f.label :directions, 'Tarif' %>
+<%= f.text_area :directions, :rows => 5, :cols => 40 %></p>
+
+<p><%= f.label :description, 'Açıklama' %>
+<%= f.text_area :description, :rows => 5, :cols => 40 %></p>
+
+<%= f.hidden_field :latitude %></p>
+<%= f.hidden_field :longitude %></p>
+
+<h2>Harita</h2>
+<div id="map_canvas"></div>
+
+<p><%= f.submit 'Kaydet' %></p>
+<% end %>
