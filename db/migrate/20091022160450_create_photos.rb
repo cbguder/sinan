@@ -1,7 +1,7 @@
 class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
-      t.integer :building_id
+      t.integer :building_id, :null => false
       t.date :date_taken
       t.boolean :public
     end
