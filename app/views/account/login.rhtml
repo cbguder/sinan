@@ -1,0 +1,11 @@
+<div id="login_form">
+<h1><%=h COMPANY_NAME %></h1>
+<%- for k,v in flash -%>
+<p class="<%=h k %>"><%=h v %></p>
+<%- end -%>
+<% form_tag do -%>
+	<p><label>Kullanıcı adı</label><br /><%= text_field_tag 'login' %></p>
+	<p><label>Parola</label><br /><%= password_field_tag 'password' %></p>
+	<p class="submit"><%= submit_tag "Giriş" %></p>
+<% end -%>
+</div>
