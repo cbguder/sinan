@@ -1,4 +1,4 @@
-class BuildingsController < ApplicationController
+class BuildingsController < AuthenticatedController
   # GET /buildings
   # GET /buildings.xml
   def index
@@ -44,7 +44,7 @@ class BuildingsController < ApplicationController
 
     respond_to do |format|
       if @building.save
-        flash[:notice] = 'Building was successfully created.'
+        flash[:notice] = 'Eser başarıyla yaratıldı.'
         format.html { redirect_to(@building) }
         format.xml  { render :xml => @building, :status => :created, :location => @building }
       else
@@ -61,7 +61,7 @@ class BuildingsController < ApplicationController
 
     respond_to do |format|
       if @building.update_attributes(params[:building])
-        flash[:notice] = 'Building was successfully updated.'
+        flash[:notice] = 'Eser başarıyla güncellendi.'
         format.html { redirect_to(@building) }
         format.xml  { head :ok }
       else
