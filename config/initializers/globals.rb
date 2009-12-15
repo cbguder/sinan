@@ -1,1 +1,1 @@
-COMPANY_NAME = 'ÇEKÜL'
+COMPANY_NAME = "Sinan'a Saygı"
