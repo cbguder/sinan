@@ -1,0 +1,20 @@
+<% form_for(@photo, :html => { :multipart => true }) do |f| %>
+<%= f.error_messages %>
+
+<p><%= f.label :photo, 'Dosya' %>
+<%= f.file_field :photo %></p>
+
+<p><%= f.label :building_id, 'Eser' %>
+<%= f.collection_select :building_id, Building.find(:all, :order => :name), :id, :name %></p>
+
+<p><%= f.label :description, 'Açıklama' %>
+<%= f.text_field :description %></p>
+
+<p><%= f.label :date, 'Tarih' %>
+<%= f.date_select :date %></p>
+
+<p><%= f.label :public, 'Umumi?' %>
+<%= f.check_box :public %></p>
+
+<p><%= f.submit 'Kaydet' %></p>
+<% end %>

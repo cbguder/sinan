@@ -4,6 +4,18 @@ div#map_canvas {
     height: 450px;
 }
 
-div.photo {
+div.thumbnail {
     float: left;
+    width: 130px;
+    height: 130px;
+    margin: 10px 10px 10px 0;
+    text-align: center;
+}
+
+div.thumbnail img {
+    border: 1px solid #ccc;
+}
+
+div.photo img {
+    border: 1px solid #ccc;
 }

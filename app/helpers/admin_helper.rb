@@ -3,14 +3,15 @@ module AdminHelper
   MEMBER_ACTIONS     = [ 'show', 'edit', 'destroy' ]
 
   T = {
-    'index'              => 'Listele',
-    'new'                => 'Yeni',
-    'create'             => 'Yeni',
-    'show'               => 'Görüntüle',
-    'edit'               => 'Düzenle',
-    'update'             => 'Güncelle',
-    'destroy'            => 'Sil',
-    'buildings'          => 'Eserler'
+    'index'     => 'Listele',
+    'new'       => 'Yeni',
+    'create'    => 'Yeni',
+    'show'      => 'Görüntüle',
+    'edit'      => 'Düzenle',
+    'update'    => 'Güncelle',
+    'destroy'   => 'Sil',
+    'buildings' => 'Eserler',
+    'photos'    => 'Fotoğraflar'
   }
 
   def t(str)

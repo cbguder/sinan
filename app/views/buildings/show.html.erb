@@ -34,11 +34,11 @@ document.observe("dom:loaded", function() {
 
 <div>
 <%- for photo in @building.photos -%>
-<div class="photo"><img src="/photos/thumbnails/<%=h @building.id %>/<%=h photo.id %>.jpg" /></div>
+<div class="thumbnail"><%= link_to image_tag(photo.photo.url(:thumb)), photo %></div>
 <%- end -%>
 </div>
 
-<p style="clear:both;"><%= link_to 'Fotoğraf ekle', :action => :add_photo %></p>
+<p style="clear:both;"><%= button_to 'Fotoğraf ekle', :controller => :photos, :action => :new, :building_id => @building.id %></p>
 
 <h2>Harita</h2>
 <div id="map_canvas"></div>

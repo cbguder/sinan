@@ -1,0 +1,8 @@
+<h2>Fotoğraf görüntüle</h2>
+
+<div class="photo"><%= link_to image_tag(@photo.photo.url(:medium)), @photo.photo.url %></div>
+
+<p><label>Eser</label>     <%= link_to @photo.building.name, @photo.building %></p>
+<p><label>Açıklama</label> <%=h @photo.description %></p>
+<p><label>Tarih</label>    <%=h @photo.date %></p>
+<p><label>Umumi?</label>   <%=h @photo.public ? 'Evet' : 'Hayır' %></p>
