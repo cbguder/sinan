@@ -1,0 +1,32 @@
+<h2>Arama</h2>
+
+<% form_tag(:action => :search) do -%>
+<p><%= label_tag :name, 'İsim' %> <%= text_field_tag :name, params[:name] %></p>
+<p><%= label_tag :start, 'Yıl' %> <%= text_field_tag :start, params[:start], :size => 4, :maxlength => 4 %> - <%= text_field_tag :end, params[:end], :size => 4, :maxlength => 4 %></p>
+<p><%= label_tag :city, 'Şehir' %> <%= select_tag :city, "<option></option>\n" + options_from_collection_for_select(City.all, :id, :name, params[:city].to_i) %></p>
+<p><%= label_tag :distance, 'Mesafe' %> <%= text_field_tag :distance, params[:distance], :size => 4 %> km</p>
+<p><%= submit_tag 'Ara', :name => nil %></p>
+<% end -%>
+
+<table>
+	<thead>
+		<tr>
+			<th>İsim</th>
+			<th>Yıl</th>
+			<th>Şehir</th>
+			<th class="price">Mesafe</th>
+			<th class="edit"></th>
+		</tr>
+	</thead>
+	<tbody>
+<% @buildings.each do |building| %>
+		<tr>
+			<td><%= link_to building.name, building %></td>
+			<td><%=h building.year %></td>
+			<td><%=h building.city.name %></td>
+			<td class="price"><% if @city %><%=h number_with_precision(building.distance_to(@city), :precision => 2) %> km<% end %></td>
+			<td class="rightmost"><%= member_actions(building, [:edit]) %></td>
+		</tr>
+<% end %>
+	</tbody>
+</table>

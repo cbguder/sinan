@@ -1,9 +1,10 @@
 module AdminHelper
-  COLLECTION_ACTIONS = [ 'index', 'new' ]
+  COLLECTION_ACTIONS = [ 'index', 'search', 'new' ]
   MEMBER_ACTIONS     = [ 'show', 'edit', 'destroy' ]
 
   T = {
     'index'     => 'Listele',
+    'search'    => 'Ara',
     'new'       => 'Yeni',
     'create'    => 'Yeni',
     'show'      => 'Görüntüle',
@@ -47,12 +48,14 @@ module AdminHelper
 
     r = []
     actions.each { |k|
-      link = case k
-        when 'destroy'             : link_to(t(k), { :action => k }, :confirm => 'Emin misiniz?', :method => :delete)
-        when controller.action_name: link_to(t(k), { :action => k }, { :class => 'current' })
-        else                         link_to(t(k), :action => k)
+      if controller.respond_to?(k)
+        link = case k
+          when 'destroy'             : link_to(t(k), { :action => k }, :confirm => 'Emin misiniz?', :method => :delete)
+          when controller.action_name: link_to(t(k), { :action => k }, { :class => 'current' })
+          else                         link_to(t(k), :action => k)
+        end
+        r << content_tag(:li, link)
       end
-      r << content_tag(:li, link)
     }
 
     r.join('')

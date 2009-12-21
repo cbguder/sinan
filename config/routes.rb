@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :buildings
+  map.resources :buildings, :collection => { :search => [:get, :post] }
   map.resources :photos
 
   # The priority is based upon order of creation: first created -> highest priority.
