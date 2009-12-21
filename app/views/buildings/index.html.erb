@@ -1,22 +1,22 @@
 <h2>Tüm eserler</h2>
 
 <table>
-    <thead>
-        <tr>
-            <th>İsim</th>
-            <th>Yıl</th>
-            <th>Şehir</th>
-            <th class="edit"></th>
-        </tr>
-    </thead>
-    <tbody>
+	<thead>
+		<tr>
+			<th>İsim</th>
+			<th>Yıl</th>
+			<th>Şehir</th>
+			<th class="edit"></th>
+		</tr>
+	</thead>
+	<tbody>
 <% @buildings.each do |building| %>
-        <tr>
-            <td><%= link_to building.name, building %></td>
-            <td><%=h building.year %></td>
-            <td><%=h building.city.name %></td>
-            <td class="rightmost"><%= member_actions(building, [:edit]) %></td>
-        </tr>
+		<tr>
+			<td><%= link_to building.name, building %></td>
+			<td><%=h building.year %></td>
+			<td><%=h building.city.name %></td>
+			<td class="rightmost"><%= member_actions(building, [:edit]) %></td>
+		</tr>
 <% end %>
-    </tbody>
+	</tbody>
 </table>
