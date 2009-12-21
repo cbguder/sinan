@@ -2,7 +2,7 @@ class BuildingsController < AuthenticatedController
   # GET /buildings
   # GET /buildings.xml
   def index
-    @buildings = Building.all
+    @buildings = Building.all(:order => :name)
 
     respond_to do |format|
       format.html # index.html.erb
